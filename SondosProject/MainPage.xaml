@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SondosProject.Models"
+             x:Class="SondosProject.MainPage">
+    
+    <ContentPage.BindingContext>
+        <local:MainViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ScrollView Orientation="Both">
+        <Grid
+            Margin="10"
+            Padding="30,0"
+            RowSpacing="5"
+            RowDefinitions="*,*,*"
+            ColumnDefinitions="*,*,.3*">
+
+            <VerticalStackLayout Grid.Row="1" Grid.Column="0" BindableLayout.ItemsSource="{Binding AllWords}" Padding="10">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <FlexLayout JustifyContent="SpaceBetween">
+                            <Entry TextChanged="RefreshData" WidthRequest="150" Placeholder="Italian" Text="{Binding Italic}" />
+                            <Entry TextChanged="RefreshData" WidthRequest="150" Placeholder="Arabic" Text="{Binding Arabic}" />
+                            <ImageButton Margin="5" WidthRequest="50" HeightRequest="50" Source="delete.png"
+                                    Command="{Binding BindingContext.DeleteOneCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                    CommandParameter="{Binding ID}" />
+                        </FlexLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+            <FlexLayout JustifyContent="SpaceEvenly" Grid.Row="2" Grid.ColumnSpan="2">
+                <ImageButton BackgroundColor="Green" Source="plus.png" HeightRequest="50" WidthRequest="50" Command="{Binding AddCommand}"/>
+                <ImageButton BackgroundColor="Red" Source="play.png" HeightRequest="50" WidthRequest="50" Command="{Binding StartTestCommand}"/>
+            </FlexLayout>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,4 @@
+D:\Windows Helper\Abdullah\Desktop\SondosProject\SondosProject\bin\Release\net8.0-android\publish\com.companyname.sondosproject-Signed.aab
+D:\Windows Helper\Abdullah\Desktop\SondosProject\SondosProject\bin\Release\net8.0-android\publish\com.companyname.sondosproject.aab
+D:\Windows Helper\Abdullah\Desktop\SondosProject\SondosProject\bin\Release\net8.0-android\publish\com.companyname.sondosproject-Signed.apk
+D:\Windows Helper\Abdullah\Desktop\SondosProject\SondosProject\bin\Release\net8.0-android\publish\_Microsoft.Android.Resource.Designer.dll

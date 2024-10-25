@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+             x:Class="SondosProject.Views.AddPopup"
+             CanBeDismissedByTappingOutsideOfPopup="True">
+    
+    <VerticalStackLayout Spacing="10" Padding="25">
+        <VerticalStackLayout>
+            <Label Text="Italiano"/>
+            <Entry WidthRequest="200" x:FieldModifier="public" x:Name="italic" Text="" Placeholder="Italiano"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label Text="Arabic"/>
+            <Entry WidthRequest="200" x:FieldModifier="public" x:Name="arabic" Text="" Placeholder="Arabic"/>
+        </VerticalStackLayout>
+
+        <Button Clicked="Button_Clicked" Text="Add"/>
+    </VerticalStackLayout>
+</toolkit:Popup>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SondosProject.Models"
+             x:Class="SondosProject.Views.TestPage"
+             Title="TestPage">
+    <ContentPage.BindingContext>
+        <local:TestPageModelView/>
+    </ContentPage.BindingContext>
+    
+    <VerticalStackLayout Margin="10">
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label Text="{Binding DegreeCount, StringFormat='{0}/'}"/>
+            <Label Text="{Binding TotalDegreeCount}"/>
+        </HorizontalStackLayout>
+       
+        <VerticalStackLayout IsVisible="{Binding ArabicIsShow}">
+            <Label Text="Question Word"/>
+            <Entry IsReadOnly="True" Text="{Binding ShowedWords.Arabic}"/>
+            
+            <Label Text="Answer Word"/>
+            <Entry Text="{Binding ItalicAnswer}"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout IsVisible="{Binding ItalianIsshow}">
+            <Label Text="Question Word"/>
+            <Entry IsReadOnly="True" Text="{Binding ShowedWords.Italic}"/>
+
+            <Label Text="Answer Word"/>
+            <Entry Text="{Binding ArabicAnswer}"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1" Grid.Column="0" BindableLayout.ItemsSource="{Binding WordsResult}" Padding="10">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout Spacing="10">
+                        <VerticalStackLayout>
+                            <Label Text="Italian"/>
+                            <Entry WidthRequest="100" Placeholder="Italian" Text="{Binding Italic}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout>
+                            <Label Text="Arabic"/>
+                            <Entry WidthRequest="100" Placeholder="Arabic" Text="{Binding Arabic}"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </VerticalStackLayout>
+
+        <Button IsVisible="{Binding ShowSubmit}" Command="{Binding SubmitCommand}" Text="Submit"/>
+        <Button IsVisible="{Binding ShowBack}" Command="{Binding BackCommand}" Text="Back"/>
+    </VerticalStackLayout>
+</ContentPage>
